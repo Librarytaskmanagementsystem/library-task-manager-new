@@ -1,0 +1,37 @@
+LIBRARY BOOK MONITORING FEATURE - SETUP
+
+This project adds book borrowing and return monitoring to the existing LibraTask app.
+
+FEATURES
+- Record book title, optional book code/ISBN, borrower name, student ID, and due date.
+- View all borrowing records and current status.
+- Mark a book as returned; the return date is saved in MongoDB.
+- Summary counts for total records, borrowed, returned, and overdue.
+- AI Monitor report. If GEMINI_API_KEY is configured, Gemini summarizes the real database statistics. If no key is set, the API returns a data-based summary.
+
+SETUP
+1. Extract this ZIP.
+2. In backend, copy .env.example to .env.
+3. Edit backend/.env and set MONGO_URI and, optionally, GEMINI_API_KEY.
+   Example:
+   PORT=5000
+   MONGO_URI=mongodb://127.0.0.1:27017/library_task_manager
+   GEMINI_API_KEY=your_key_here
+   GEMINI_MODEL=gemini-2.5-flash
+4. Start MongoDB.
+5. Open a terminal in backend and run: npm install
+6. Run backend: npm run dev
+7. Open another terminal in frontend and run: npm install
+8. Run frontend: npm run dev
+9. Open the Vite URL (usually http://localhost:5173).
+10. Click Book Monitoring in the left navigation.
+
+API ROUTES
+GET    /api/loans
+GET    /api/loans/summary
+POST   /api/loans
+PATCH  /api/loans/:id/return
+POST   /api/loans/ai-monitor
+
+NOTE
+This tracks loans and return records; it does not decrement a separate inventory count because the existing project did not have a book inventory collection. AI output is a summary of database records, not automatic detection. A librarian must record the borrow and click Return Book when the physical book is returned.

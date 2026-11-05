@@ -1,0 +1,53 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "dev",
+			"path": "backend",
+			"problemMatcher": [],
+			"label": "npm: dev - backend",
+			"detail": "nodemon server.js",
+			"group": "build"
+		},
+		{
+			"type": "npm",
+			"script": "seed",
+			"path": "backend",
+			"problemMatcher": [],
+			"label": "npm: seed - backend",
+			"detail": "node seed.js",
+			"group": "build"
+		},
+		{
+			"type": "npm",
+			"script": "start",
+			"path": "backend",
+			"problemMatcher": [],
+			"label": "npm: start - backend",
+			"detail": "node server.js",
+			"group": "build"
+		},
+		{
+			"type": "npm",
+			"script": "dev",
+			"path": "frontend",
+			"problemMatcher": [],
+			"label": "npm: dev - frontend",
+			"detail": "vite",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "frontend",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build - frontend",
+			"detail": "vite build"
+		}
+	]
+}
